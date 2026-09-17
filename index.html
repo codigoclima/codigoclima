@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="CódigoClima: consulte códigos de erro de ar-condicionado por marca e encontre orientações iniciais com segurança.">
+  <title>CódigoClima — Códigos de erro de ar-condicionado</title>
+  <style>
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;background:#f5f7fa;color:#172033}
+    header{background:#0b3158;color:#fff;padding:18px 20px}.wrap{max-width:1050px;margin:auto}
+    .brand{font-size:25px;font-weight:800}.tag{opacity:.9;margin-top:4px}
+    .hero{padding:48px 20px;background:linear-gradient(180deg,#eaf5ff,#f5f7fa)}
+    h1{font-size:36px;line-height:1.1;margin:0 0 12px}.lead{font-size:18px;line-height:1.55;max-width:720px}
+    .search{display:flex;gap:8px;margin-top:25px;max-width:720px}
+    input{flex:1;padding:16px;border:1px solid #bcc9d6;border-radius:10px;font-size:17px}
+    button{padding:0 22px;border:0;border-radius:10px;background:#1268b3;color:#fff;font-weight:700;font-size:16px}
+    main{padding:28px 20px 55px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+    .card{background:#fff;border:1px solid #e1e6ec;border-radius:13px;padding:20px;box-shadow:0 2px 8px #0000000a}
+    .card h3{margin:0 0 8px}.codes{color:#516174;line-height:1.6}.section{margin-top:35px}
+    .notice{background:#fff8df;border-left:4px solid #d79a00;padding:16px;border-radius:8px;line-height:1.5}
+    footer{background:#0b3158;color:#dce8f4;padding:25px 20px;line-height:1.5}
+    #result{margin-top:12px;font-weight:700;min-height:22px}
+    @media(max-width:600px){h1{font-size:30px}.search{flex-direction:column}button{padding:15px}}
+  </style>
+</head>
+<body>
+<header><div class="wrap"><div class="brand">CódigoClima</div><div class="tag">Entenda o código. Encontre o próximo passo.</div></div></header>
+
+<section class="hero"><div class="wrap">
+  <h1>Qual código apareceu no seu ar-condicionado?</h1>
+  <p class="lead">Pesquise pelo código ou pela marca. Estamos construindo um guia simples para ajudar você a entender mensagens de erro e encontrar verificações iniciais seguras.</p>
+  <div class="search">
+    <input id="q" aria-label="Pesquisar código ou marca" placeholder="Ex.: CH38, E6, LG, Midea">
+    <button onclick="buscar()">Pesquisar</button>
+  </div>
+  <div id="result" aria-live="polite"></div>
+</div></section>
+
+<main class="wrap">
+  <h2>Marcas e códigos</h2>
+  <div class="grid">
+    <div class="card"><h3>LG</h3><div class="codes">CH38 · CH05 · CH10 · CH21 · CH34</div></div>
+    <div class="card"><h3>Midea</h3><div class="codes">E1 · E2 · E3 · EC · P4</div></div>
+    <div class="card"><h3>Gree</h3><div class="codes">E1 · E6 · H3 · F0</div></div>
+    <div class="card"><h3>Samsung</h3><div class="codes">CF · C1 · E101</div></div>
+    <div class="card"><h3>Elgin</h3><div class="codes">E1 · E4 · E6</div></div>
+  </div>
+
+  <section class="section">
+    <h2>Como o CódigoClima funciona</h2>
+    <div class="card">
+      <p><strong>1.</strong> Digite o código exibido pelo aparelho.</p>
+      <p><strong>2.</strong> Confira a marca e o modelo, porque o mesmo código pode ter significados diferentes.</p>
+      <p><strong>3.</strong> Consulte o significado, possíveis causas e verificações iniciais.</p>
+      <p><strong>4.</strong> Quando houver risco elétrico, necessidade de abrir o equipamento ou intervenção no circuito de refrigeração, procure assistência qualificada.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="notice"><strong>Importante:</strong> este site é um guia informativo independente. Códigos podem variar entre modelos e gerações. Sempre confirme as informações no manual específico do aparelho ou com o fabricante antes de realizar qualquer intervenção.</div>
+  </section>
+</main>
+
+<footer><div class="wrap"><strong>CódigoClima</strong><br>Guia independente de códigos de erro e problemas de ar-condicionado.<br><small>Não afiliado aos fabricantes mencionados.</small></div></footer>
+
+<script>
+const paginas = {
+  "lg ch38":"lg/ch38.html",
+  "ch38":"lg/ch38.html"
+};
+function buscar(){
+  const q=document.getElementById("q").value.trim().toLowerCase();
+  const r=document.getElementById("result");
+  if(!q){r.textContent="Digite um código ou marca.";return}
+  if(paginas[q]){location.href=paginas[q];return}
+  r.textContent="Ainda estamos adicionando esse código. Em breve ele terá uma página própria.";
+}
+document.getElementById("q").addEventListener("keydown",e=>{if(e.key==="Enter")buscar()});
+</script>
+</body>
+</html>
