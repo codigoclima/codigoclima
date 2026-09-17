@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CódigoClima — Códigos de erro de ar-condicionado</title>
+<meta name="description" content="Consulte códigos de erro de ar-condicionado LG, Midea, Gree, Samsung e Elgin. Entenda o significado e veja os próximos passos com segurança.">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f7fa;color:#172033;line-height:1.55}
+header{background:#0b3158;color:#fff;padding:22px 20px}
+.wrap{max-width:1000px;margin:auto}
+.brand{font-size:27px;font-weight:800}
+.tag{opacity:.9;margin-top:3px}
+.hero{padding:55px 20px 35px;text-align:center}
+h1{font-size:42px;line-height:1.1;margin:0 0 14px}
+.hero p{font-size:18px;color:#566273}
+.search{display:flex;max-width:650px;margin:25px auto 10px;gap:8px}
+.search input{flex:1;padding:16px;border:1px solid #ccd5df;border-radius:10px;font-size:17px}
+.search button{padding:16px 22px;border:0;border-radius:10px;background:#1268b3;color:white;font-weight:bold;font-size:16px}
+#msg{min-height:24px;color:#566273}
+main{padding:0 20px 55px}
+h2{margin-top:30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{background:white;border:1px solid #e0e6ec;border-radius:14px;padding:21px}
+.card h3{margin-top:0;font-size:22px}
+.codes{display:flex;flex-wrap:wrap;gap:8px}
+.code{display:inline-block;padding:8px 11px;background:#eaf5ff;border-radius:8px;text-decoration:none;color:#1268b3;font-weight:bold}
+.code.off{background:#eef1f4;color:#697584;cursor:default}
+.info{background:white;border:1px solid #e0e6ec;border-radius:14px;padding:22px;margin-top:30px}
+footer{background:#0b3158;color:white;padding:25px 20px}
+small{opacity:.85}
+@media(max-width:600px){
+ h1{font-size:33px}
+ .search{flex-direction:column}
+ .search button{width:100%}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap">
+  <div class="brand">CódigoClima</div>
+  <div class="tag">Entenda o código. Encontre o próximo passo.</div>
+ </div>
+</header>
+
+<section class="hero wrap">
+ <h1>Qual código apareceu no seu ar-condicionado?</h1>
+ <p>Digite a marca e o código — por exemplo <strong>LG CH05</strong> ou apenas <strong>CH38</strong>.</p>
+ <div class="search">
+  <input id="searchInput" placeholder="Ex.: LG CH38" autocomplete="off">
+  <button onclick="buscar()">Pesquisar</button>
+ </div>
+ <div id="msg"></div>
+</section>
+
+<main class="wrap">
+ <h2>Códigos por fabricante</h2>
+ <div class="grid">
+  <section class="card">
+   <h3>LG</h3>
+   <div class="codes">
+    <a class="code" href="lg/ch05.html">CH05</a>
+    <a class="code" href="lg/ch10.html">CH10</a>
+    <a class="code" href="lg/ch21.html">CH21</a>
+    <a class="code" href="lg/ch34.html">CH34</a>
+    <a class="code" href="lg/ch38.html">CH38</a>
+   </div>
+  </section>
+
+  <section class="card"><h3>Midea</h3><div class="codes">
+   <span class="code off">E1</span><span class="code off">E2</span><span class="code off">E3</span>
+   <span class="code off">EC</span><span class="code off">P4</span>
+  </div></section>
+
+  <section class="card"><h3>Gree</h3><div class="codes">
+   <span class="code off">E1</span><span class="code off">E6</span><span class="code off">H3</span><span class="code off">F0</span>
+  </div></section>
+
+  <section class="card"><h3>Samsung</h3><div class="codes">
+   <span class="code off">CF</span><span class="code off">C1</span><span class="code off">E101</span>
+  </div></section>
+
+  <section class="card"><h3>Elgin</h3><div class="codes">
+   <span class="code off">E1</span><span class="code off">E4</span><span class="code off">E6</span>
+  </div></section>
+ </div>
+
+ <div class="info">
+  <h2>Como o CódigoClima funciona</h2>
+  <p>Reunimos informações sobre códigos de erro e orientações iniciais para ajudar você a entender o que o aparelho está informando. As páginas indicam verificações seguras e quando é recomendável procurar assistência técnica.</p>
+  <p><strong>Importante:</strong> não abra o equipamento, não manipule o circuito de refrigerante e não faça intervenções elétricas internas sem qualificação.</p>
+ </div>
+</main>
+
+<footer>
+ <div class="wrap"><strong>CódigoClima</strong><br><small>Guia informativo independente sobre ar-condicionado.</small></div>
+</footer>
+
+<script>
+const paginas = {
+ "lg ch05":"lg/ch05.html",
+ "ch05":"lg/ch05.html",
+ "lg ch10":"lg/ch10.html",
+ "ch10":"lg/ch10.html",
+ "lg ch21":"lg/ch21.html",
+ "ch21":"lg/ch21.html",
+ "lg ch34":"lg/ch34.html",
+ "ch34":"lg/ch34.html",
+ "lg ch38":"lg/ch38.html",
+ "ch38":"lg/ch38.html"
+};
+
+function normalizar(txt){
+ return txt.toLowerCase().trim().replace(/\s+/g," ");
+}
+
+function buscar(){
+ const q = normalizar(document.getElementById("searchInput").value);
+ if(paginas[q]){
+   window.location.href = paginas[q];
+ } else {
+   document.getElementById("msg").textContent =
+    q ? "Esse código ainda está sendo adicionado ao CódigoClima." : "Digite um código para pesquisar.";
+ }
+}
+
+document.getElementById("searchInput").addEventListener("keydown",function(e){
+ if(e.key==="Enter") buscar();
+});
+</script>
+</body>
+</html>
